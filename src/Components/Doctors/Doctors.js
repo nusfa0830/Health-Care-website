@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Button, Badge } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Footer from '../Footer/Footer';
-import NavBar from '../Navbar/NavBar';
+import MenuBar from '../Menubar/MenuBar';
+
 
 const Doctors = () => {
     const [doctors, setDoctors] = useState([]);
@@ -17,7 +18,7 @@ const Doctors = () => {
     return (
         <div>
             <div className="p-5">
-                <NavBar></NavBar>
+                <MenuBar></MenuBar>
             </div>
             <div>
                 <div className="container ">
@@ -37,6 +38,11 @@ const Doctors = () => {
                                             <div class="">
                                                 <h3 class="card-title">{doctor.name}</h3>
                                                 <h6 class="text-info">{doctor.specialist}</h6>
+                                                <p class="text-dark">{doctor.desigenation}</p>
+
+
+
+
                                                 <Link to={`/doctors/${doctor.id}`}>  <Badge pill bg="danger" className="py-2">    <Button variant="danger" >
 
                                                     Details

@@ -1,13 +1,15 @@
 import React from 'react';
 import { Badge, Button } from 'react-bootstrap';
-import NavBar from '../Navbar/NavBar';
+import MenuBar from '../Menubar/MenuBar';
+
+
 import "./Header.css";
 
 const Header = () => {
     return (
         <div className="header"  >
             <div className=" p-5" >
-                <NavBar></NavBar>
+                <MenuBar></MenuBar>
             </div>
             <div className="p-5 text-white" >
                 <h2>Feel Safe With Maternity Care </h2>

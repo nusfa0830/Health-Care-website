@@ -1,11 +1,14 @@
 import React from 'react';
 import logo from "../../Images/logo3.jpg"
-import "./NavBar.css"
+import "./MenuBar.css"
 import { Link } from 'react-router-dom';
 import { Badge, Button, Container, Nav, Navbar } from 'react-bootstrap';
-const NavBar = () => {
+import useFirebase from '../../Hooks/useFirebase';
+const MenuBar = () => {
+    const { user, handleLogout } = useFirebase();
     return (
         <div>
+
             <Navbar bg="light" variant="light" fixed="top" >
                 <Container>
                     <Navbar.Brand href="#home">
@@ -28,24 +31,41 @@ const NavBar = () => {
                         <Link to="/doctors" className="items">
                             <li>Doctors</li>
                         </Link>
-                        <Link to="/home#appointment" className="items">
+                        <Link to="/doctors" className="items">
                             <li>Online-Consult</li>
                         </Link>
-                        <Link to="/procedures" className="items">
+                        <Link to="/pages" className="items">
                             <li>Procedures</li>
                         </Link>
+
+
                         <Link to="/login">
                             <Badge pill bg="danger">    <Button variant="danger">
 
                                 Appointment
                             </Button>
-                            </Badge></Link>
+                            </Badge>
+                        </Link>
+                        {user.displayName && (
+                            <Link to="/">
+                                {user.displayName}
+                                <Button onClick={handleLogout} variant="danger">
+
+                                    SignOut
+                                </Button>
+                            </Link>
+                        )}
+
                     </Nav>
+
+
+
 
                 </Container>
             </Navbar>
+
         </div >
     );
 };
 
-export default NavBar;
+export default MenuBar;

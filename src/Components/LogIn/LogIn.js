@@ -2,11 +2,15 @@ import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { Badge, Button } from 'react-bootstrap';
 import useFirebase from '../../Hooks/useFirebase';
+import MenuBar from '../Menubar/MenuBar';
 
 const LogIn = () => {
-    const { logInWithGoogle, user, handleLogout } = useFirebase();
+    const { logInWithGoogle, user, handleGithubSignIn, handleLogout } = useFirebase();
     return (
         <div className="" >
+            <div className="py-5">
+                <MenuBar></MenuBar>
+            </div>
             <div className="bg--light body-name d-flex justify-content-start  p-5">
                 <h1>Please LogIn  {user.displayName} </h1>
             </div>
@@ -38,12 +42,12 @@ const LogIn = () => {
             <div className="  h-50 w-50 d-flex justify-content-around py-3">
 
                 {user.displayName ? <Button onClick={handleLogout} className="btn-danger ">
-                    Google LogOut
+                    GitHub LogOut
                 </Button>
 
                     :
-                    <Button onClick={logInWithGoogle} className="btn-primary">
-                        Google LogIn
+                    <Button onClick={handleGithubSignIn} className="btn-success">
+                        GitHub LogIn
                     </Button>
                 } </div>
 

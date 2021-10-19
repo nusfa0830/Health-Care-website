@@ -6,7 +6,7 @@ const Footer = () => {
         <div>
             <div className="footer-container text-white bg-secondary" >
                 <div className="footer-header">
-                    <h1 className="p-2"  >Get Notified </h1>
+                    <h1 className="p-2"  >Get Notification </h1>
                     <input className="p-2  rounded" placeholder="Your Email Address" />
                     <Button variant="success">Email Now </Button>
                 </div>
