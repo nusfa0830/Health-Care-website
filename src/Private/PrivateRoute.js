@@ -1,4 +1,5 @@
 import React, { useContext, createContext, useState } from "react";
+import { Spinner } from "react-bootstrap";
 import {
     BrowserRouter as Router,
     Switch,
@@ -9,13 +10,20 @@ import {
     useLocation,
 } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
-import useFirebase from "../Hooks/useFirebase";
+
 
 const PrivateRoute = ({ children, ...rest }) => {
-    const { user } = useFirebase();
-
     let history = useHistory();
     let location = useLocation();
+    const { user, isLoading } = useAuth();
+    if (isLoading) {
+        return (
+            <div className="text-center">
+                <Spinner animation="border" variant="danger" />
+            </div>
+        );
+    }
+
     return (
         <Route
             {...rest}

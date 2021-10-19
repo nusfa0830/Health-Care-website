@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 initializeFirebaseApp();
 
 const useFirebase = () => {
-    const googleProvider = new GoogleAuthProvider();
+
     const gitHubProvider = new GithubAuthProvider();
     const auth = getAuth();
     const [user, setUser] = useState({});
@@ -16,9 +16,9 @@ const useFirebase = () => {
 
     const logInWithGoogle = () => {
         setIsLoading(true);
-        signInWithPopup(auth, googleProvider)
-            .then((result) => setUser(result.user))
-            .catch((error) => setError(error.message));
+        const googleProvider = new GoogleAuthProvider();
+
+        return signInWithPopup(auth, googleProvider);
     }
 
 

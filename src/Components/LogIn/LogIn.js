@@ -1,11 +1,34 @@
-import userEvent from '@testing-library/user-event';
+
 import React from 'react';
+import { useHistory, useLocation } from "react-router";
 import { Badge, Button } from 'react-bootstrap';
-import useFirebase from '../../Hooks/useFirebase';
+
 import MenuBar from '../Menubar/MenuBar';
+import useAuth from '../../Hooks/useAuth';
+
+
+
+
+
+
+
 
 const LogIn = () => {
-    const { logInWithGoogle, user, handleGithubSignIn, handleLogout } = useFirebase();
+    const { logInWithGoogle, user, setUser, handleGithubSignIn, handleLogout, setIsLoading } =
+        useAuth();
+    const location = useLocation();
+    const history = useHistory();
+
+    const handleGoogleSignin = () => {
+        logInWithGoogle()
+            .then((result) => {
+                history.push(location.state?.from || "/home");
+                // console.log(location.state?.from,"google er te");
+                setUser(result.user);
+            })
+            .finally(() => setIsLoading(false));
+    };
+
     return (
         <div className="" >
             <div className="py-5">
@@ -34,7 +57,7 @@ const LogIn = () => {
                 </Button>
 
                     :
-                    <Button onClick={logInWithGoogle} className="btn-primary">
+                    <Button onClick={handleGoogleSignin} className="btn-primary">
                         Google LogIn
                     </Button>
                 } </div>

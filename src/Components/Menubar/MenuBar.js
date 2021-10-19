@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from "../../Images/logo3.jpg"
 import "./MenuBar.css"
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from "react-router-dom";
 import { Badge, Button, Container, Nav, Navbar } from 'react-bootstrap';
 import useFirebase from '../../Hooks/useFirebase';
 const MenuBar = () => {
@@ -9,8 +9,8 @@ const MenuBar = () => {
     return (
         <div>
 
-            <Navbar bg="light" variant="light" fixed="top" >
-                <Container>
+            <Navbar bg="light" expand="lg" variant="light" fixed="top"  >
+                <Container fluid>
                     <Navbar.Brand href="#home">
 
                         <img
@@ -23,44 +23,45 @@ const MenuBar = () => {
                         />{' '}
                         Maternity care
                     </Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="d-flex align-items-end justify-content-end nav-item dropdown">
+                            <Nav.Link as={NavLink} to="/home" className="items ">
+                                <li>Home</li>
+                            </Nav.Link>
+                            <Nav.Link as={NavLink} to="/doctors" className="items">
+                                <li>Doctors</li>
+                            </Nav.Link>
+                            <Nav.Link as={NavLink} to="/online-doctors" className="items">
+                                <li>Online-Consultant</li>
+                            </Nav.Link>
+                            <Nav.Link as={NavLink} to="/pages" className="items">
+                                <li>Procedures</li>
+                            </Nav.Link>
 
-                    <Nav className="d-flex align-items-end justify-content-end">
-                        <Link to="/home" className="items">
-                            <li>Home</li>
-                        </Link>
-                        <Link to="/doctors" className="items">
-                            <li>Doctors</li>
-                        </Link>
-                        <Link to="/doctors" className="items">
-                            <li>Online-Consult</li>
-                        </Link>
-                        <Link to="/pages" className="items">
-                            <li>Procedures</li>
-                        </Link>
 
+                            <Nav.Link as={NavLink} to="/appoinment">
+                                <Badge pill bg="danger">    <Button variant="danger">
 
-                        <Link to="/login">
-                            <Badge pill bg="danger">    <Button variant="danger">
-
-                                Appointment
-                            </Button>
-                            </Badge>
-                        </Link>
-                        {user.displayName && (
-                            <Link to="/">
-                                {user.displayName}
-                                <Button onClick={handleLogout} variant="danger">
-
-                                    SignOut
+                                    Appointment
                                 </Button>
-                            </Link>
-                        )}
+                                </Badge>
+                            </Nav.Link>
+                            {user.displayName && (
+                                <Link to="/">
+                                    {user.displayName}
+                                    <Button onClick={handleLogout} variant="danger">
 
-                    </Nav>
+                                        SignOut
+                                    </Button>
+                                </Link>
+                            )}
+
+                        </Nav>
 
 
 
-
+                    </Navbar.Collapse>
                 </Container>
             </Navbar>
 

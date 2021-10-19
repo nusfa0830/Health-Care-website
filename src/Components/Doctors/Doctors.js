@@ -31,7 +31,7 @@ const Doctors = () => {
                                     {/* <div> key={doctor.key}</div> */}
 
 
-                                    <div class="col pb-5">
+                                    <div class="col  pb-5">
                                         <div class="shadow-lg card h-100">
 
                                             <img src={doctor.image} className="card-img-top p-2" alt="..." />
