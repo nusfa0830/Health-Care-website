@@ -1,8 +1,8 @@
 import React from 'react';
-import { Badge, Button } from 'react-bootstrap';
+import { Badge, Button, Nav } from 'react-bootstrap';
 import MenuBar from '../Menubar/MenuBar';
 
-
+import { NavLink } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => {
@@ -23,11 +23,13 @@ const Header = () => {
                     <ol>patient information</ol>
                     <ol>Doctors Details</ol>
                     <ol className="py-3">
-                        <Badge pill bg="danger"><Button variant="danger">
 
-                            Talk to Us
-                        </Button>
-                        </Badge></ol>
+                        <Nav.Link as={NavLink} to="/appoinment" className="items ">
+                            <Badge pill bg="danger"><Button variant="danger">
+
+                                Talk to Us
+                            </Button>
+                            </Badge>    </Nav.Link></ol>
                 </ul>
             </div>
         </div >
