@@ -14,7 +14,7 @@ import useAuth from '../../Hooks/useAuth';
 
 
 const LogIn = () => {
-    const { logInWithGoogle, user, setUser, handleGithubSignIn, handleLogout, setIsLoading } =
+    const { logInWithGoogle, user, setUser, gitHubSignIn, handleLogout, setIsLoading } =
         useAuth();
     const location = useLocation();
     const history = useHistory();
@@ -25,6 +25,17 @@ const LogIn = () => {
                 history.push(location.state?.from || "/home");
                 // console.log(location.state?.from,"google er te");
                 setUser(result.user);
+            })
+            .finally(() => setIsLoading(false));
+    };
+
+    const handleGitSignin = () => {
+        gitHubSignIn()
+            .then((result) => {
+                history.push(location.state?.from || "/home");
+                // console.log(location.state?.from, "facebook er te");
+                setUser(result.user);
+                // console.log("facebbok user", result.user)
             })
             .finally(() => setIsLoading(false));
     };
@@ -69,7 +80,7 @@ const LogIn = () => {
                 </Button>
 
                     :
-                    <Button onClick={handleGithubSignIn} className="btn-success">
+                    <Button onClick={handleGitSignin} className="btn-success">
                         GitHub LogIn
                     </Button>
                 } </div>

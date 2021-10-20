@@ -21,19 +21,12 @@ const useFirebase = () => {
         return signInWithPopup(auth, googleProvider);
     }
 
-
-
-    const handleGithubSignIn = () => {
+    const gitHubSignIn = () => {
+        setIsLoading(true);
         signInWithPopup(auth, gitHubProvider)
-            .then(result => {
-                const { displayName, photoURL, email } = result.user;
-                const loggedInUser = {
-                    name: displayName,
-                    email: email,
-                    photo: photoURL
-                }
-                setUser(loggedInUser);
-            })
+
+        return signInWithPopup(auth, gitHubProvider);
+
     }
     useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, (user) => {
@@ -55,19 +48,10 @@ const useFirebase = () => {
     };
 
 
-
-
-
-
-
-
-
-
-
     return {
         logInWithGoogle, user, error, handleLogout, setUser,
         isLoading,
-        setIsLoading, handleGithubSignIn
+        setIsLoading, gitHubSignIn
     }
 }
 export default useFirebase;

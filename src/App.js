@@ -21,6 +21,7 @@ import Page from './Components/Page/Page';
 import OnlineDoctor from './Components/Online-Consult/OnlineDoctor';
 import Register from './Components/Register/Register';
 import NotFound from './Components/NotFound/NotFound';
+import DoctorsDetails from './Components/DoctorsDetails/DoctorsDetails';
 
 
 function App() {
@@ -40,7 +41,7 @@ function App() {
               <Doctors></Doctors>
             </Route>
             <Route path="/doctors/:doctorId">
-
+              <DoctorsDetails></DoctorsDetails>
             </Route>
             <Route path="/appoinment">
               <Register></Register>
