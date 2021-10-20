@@ -66,14 +66,6 @@ const DoctorsDetails = () => {
                 </div>
             </div>
 
-
-
-
-
-
-
-
-
         </div>
     );
 };
