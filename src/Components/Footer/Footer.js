@@ -50,7 +50,7 @@ const Footer = () => {
                 <div>
                     <h3>Trusted By 1550000 people</h3>
                 </div>
-                <div className="p-4">
+                <div className="p-4 pb-5">
                     <h5 >Copyright  &copy; 2021 || Maternity Care</h5></div>
             </div >
 

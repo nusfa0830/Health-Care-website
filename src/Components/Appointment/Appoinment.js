@@ -34,7 +34,7 @@ const Appoinment = () => {
                 <div class="form-floating mb-3">
                     <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
                     ></textarea>
-                    <label for="floatingTextarea2">Write down Your Problems and available Time here</label>
+                    <label for="floatingTextarea2">Your Message</label>
                 </div>
                 <Button className="available ">Check availablity</Button>
             </div>

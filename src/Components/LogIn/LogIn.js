@@ -1,13 +1,11 @@
 
 import React from 'react';
 import { useHistory, useLocation } from "react-router";
-import { Badge, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 import MenuBar from '../Menubar/MenuBar';
 import useAuth from '../../Hooks/useAuth';
-
-
-
+import Footer from '../Footer/Footer';
 
 
 
@@ -49,13 +47,18 @@ const LogIn = () => {
                 <h1>Please LogIn  {user.displayName} </h1>
             </div>
             <div className=" h-50 w-50 px-5 ">
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="Your Name" />
-                    <label for="floatingInput">Name</label>
+                <div className="form-floating mb-3 row">
+                    <input type="text" className="form-control form-control-sm col-sm-12 " id="floatingInput" placeholder="Your Name" />
+                    <label for="floatingInput colFormLabelSm">Name</label>
                 </div>
-                <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" />
-                    <label for="floatingInput">Email address</label>
+                <div className="form-floating mb-3 row">
+                    <input type="email" className="form-control form-control-sm col-sm-12" id="floatingInput" placeholder="name@example.com" />
+                    <label for="floatingInput colFormLabelSm " className="py-1">Email address</label>
+                </div>
+
+                <div className="form-floating mb-3 row">
+                    <input type="password" className="form-control form-control-sm col-sm-12 " id="exampleInputPassword1" placeholder="password" />
+                    <label for="exampleInputPassword1 colFormLabelSm">Password</label>
                 </div>
 
             </div>
@@ -72,7 +75,7 @@ const LogIn = () => {
                         Google LogIn
                     </Button>
                 } </div>
-
+            {/* github login */}
             <div className="  h-50 w-50 d-flex justify-content-around py-3">
 
                 {user.displayName ? <Button onClick={handleLogout} className="btn-danger ">
@@ -84,7 +87,7 @@ const LogIn = () => {
                         GitHub LogIn
                     </Button>
                 } </div>
-
+            <div><Footer></Footer></div>
         </div>
     );
 };

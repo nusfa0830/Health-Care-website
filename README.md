@@ -14,4 +14,5 @@
 # Read me file edit
 # responsive site for dekstop and mobile 
 # USE CONTEXT API 
-
+# use animation
+# use fontawesome
