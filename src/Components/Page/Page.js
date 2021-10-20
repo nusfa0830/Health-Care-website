@@ -13,7 +13,7 @@ const Page = () => {
                     <MenuBar></MenuBar>
                 </div>
 
-
+                {/* use animation */}
                 <div className="animate__animated animate__bounceanimate__animated animate__fadeInTopRight" >
                     <h1 className="p-4 body-name">Pregnancy Diet Chart</h1>
 

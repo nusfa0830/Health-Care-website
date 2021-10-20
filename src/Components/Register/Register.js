@@ -43,7 +43,7 @@ const Register = () => {
 
                     <div className="py-3" >
                         <Nav.Link as={NavLink} to="/login" className="items">
-                            <p> Already Have Appoinment ? </p>
+                            <p> Already Have Account? Then Click </p>
                         </Nav.Link>
                     </div>
                     <div className="pb-5">
